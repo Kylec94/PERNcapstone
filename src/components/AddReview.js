@@ -1,10 +1,25 @@
 import React from "react";
 import { useState } from "react";
+import { useParams } from "react-router-dom";
+import Scoped from "../apis/Scoped";
 
 const AddReview = () => {
+  const { id } = useParams();
   const [name, setName] = useState("");
   const [reviewText, setReviewText] = useState("");
   const [rating, setRating] = useState("");
+
+  const handleSubmitReview = async (e) => {
+    e.preventDefault();
+    const response = await Scoped.post(`/${id}/addReview`, {
+      name,
+      review: reviewText,
+      rating,
+    });
+    window.location.reload();
+    console.log(response);
+  };
+
   return (
     <div className="mb-2">
       <form action="">
@@ -28,8 +43,8 @@ const AddReview = () => {
               id="rating"
               className="custom-select"
             >
-              <option disabled>Rating</option>
-              <option value="1">1</option>
+              <option>Rating</option>
+              <option>1</option>
               <option value="2">2</option>
               <option value="3">3</option>
               <option value="4">4</option>
@@ -46,7 +61,13 @@ const AddReview = () => {
             className="form-control"
           ></textarea>
         </div>
-        <button className="btn btn-primary">Submit</button>
+        <button
+          type="submit"
+          onClick={handleSubmitReview}
+          className="btn btn-primary"
+        >
+          Submit
+        </button>
       </form>
     </div>
   );

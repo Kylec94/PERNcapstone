@@ -9,13 +9,13 @@ const AddRestaurant = () => {
   const [location, setLocation] = useState("");
   const [priceRange, setPriceRange] = useState("Price Range");
   const handleSubmit = async (e) => {
-    e.preventDefault();
+    e.preventDefault(); 
 
     try {
       const response = await Scoped.post("/", {
-        name: name,
+        name: name, 
         location: location,
-        price_range: priceRange,
+        price_range: priceRange, 
       });
       addRestaurants(response.data.data.restaurant);
       console.log(response);
