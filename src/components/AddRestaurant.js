@@ -4,18 +4,19 @@ import Scoped from "../apis/Scoped";
 import { RestaurantContext } from "../context/RestaurantsContext";
 
 const AddRestaurant = () => {
-  const { addRestaurants } = useContext(RestaurantContext);
+  const { addRestaurants } = useContext(RestaurantContext); //destructure addRestaurants context
   const [name, setName] = useState("");
   const [location, setLocation] = useState("");
   const [priceRange, setPriceRange] = useState("Price Range");
   const handleSubmit = async (e) => {
-    e.preventDefault(); 
+    //pass in e for event for clicks or submits
+    e.preventDefault(); //keeps page from refreshing when u submit
 
     try {
       const response = await Scoped.post("/", {
-        name: name, 
+        name: name, //if back end and front end naming conventions are the same u could just leave it as 'name' and 'location'
         location: location,
-        price_range: priceRange, 
+        price_range: priceRange, //back end expects price_range front end is using useState for priceRange
       });
       addRestaurants(response.data.data.restaurant);
       console.log(response);

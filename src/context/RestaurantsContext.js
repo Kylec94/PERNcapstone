@@ -7,6 +7,7 @@ export const RestaurantContextProvider = (props) => {
   const [selectedRestaurant, setSelectedRestaurant] = useState(null);
 
   const addRestaurants = (restaurant) => {
+    //function to add restaurants on .POST - setRestaurants state to copied array of current restaurantS, and adding new restaurant to it
     setRestaurants([...restaurants, restaurant]);
   };
 
@@ -18,7 +19,7 @@ export const RestaurantContextProvider = (props) => {
         addRestaurants,
         selectedRestaurant,
         setSelectedRestaurant,
-      }}
+      }} //the value of context props.children
     >
       {props.children}
     </RestaurantContext.Provider>
