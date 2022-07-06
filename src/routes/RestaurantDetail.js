@@ -30,7 +30,10 @@ const RestaurantDetail = () => {
     <div>
       {selectedRestaurant && (
         <>
-          <h1 className="text-center display-1">
+          <h1
+            style={{ fontFamily: "Myriad Pro Regular" }}
+            className="text-center display-1"
+          >
             {selectedRestaurant.restaurant.name}
           </h1>
           <div className="text-center">

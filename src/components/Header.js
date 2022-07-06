@@ -17,6 +17,7 @@ const Header = () => {
           style={{
             color: "linear-gradient(red, yellow, green)",
             fontSize: "50px",
+            color: "gold",
           }}
           class="fa-solid fa-magnifying-glass"
         ></i>
