@@ -1,6 +1,7 @@
 import React from "react";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import Home from "./routes/Home";
+import Register from "./routes/Register";
 import UpdatePage from "./routes/UpdatePage";
 import RestaurantDetail from "./routes/RestaurantDetail";
 import { RestaurantContextProvider } from "./context/RestaurantsContext";
@@ -11,7 +12,8 @@ const App = () => {
       <div className="'container">
         <Router>
           <Switch>
-            <Route exact path="/" component={Home} />
+            <Route exact path="/" component={Register} />
+            <Route exact path="/home" component={Home} />
             <Route
               exact
               path="/restaurants/:id/update"

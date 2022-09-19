@@ -16,8 +16,11 @@ const AddRestaurant = () => {
       const response = await Scoped.post("/", {
         name: name, //if back end and front end naming conventions are the same u could just leave it as 'name' and 'location'
         location: location,
-        price_range: priceRange, //back end expects price_range front end is using useState for priceRange
+        price_range: priceRange, //back end expects price_range front end is using useState for priceRange. priceRange is the useState
       });
+      setName("");
+      setLocation("");
+      setPriceRange("Price Range");
       addRestaurants(response.data.data.restaurant);
       console.log(response);
     } catch (error) {
@@ -30,8 +33,8 @@ const AddRestaurant = () => {
         <div className="form-row">
           <div className="col">
             <input
-              value={name}
-              onChange={(e) => setName(e.target.value)}
+              value={name} //useState value
+              onChange={(e) => setName(e.target.value)} //useState is changed via this onChange
               type="text"
               className="form-control"
               placeholder="Name"
@@ -48,7 +51,7 @@ const AddRestaurant = () => {
           </div>
           <div className="col">
             <select
-              value={priceRange}
+              value={priceRange} //
               onChange={(e) => setPriceRange(e.target.value)}
               className="custom-select"
             >

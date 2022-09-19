@@ -19,7 +19,7 @@ const Header = () => {
             fontSize: "50px",
             color: "gold",
           }}
-          class="fa-solid fa-magnifying-glass"
+          className="fa-solid fa-magnifying-glass"
         ></i>
         ped
       </div>
